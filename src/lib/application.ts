@@ -2,6 +2,8 @@ import * as http from 'http';
 import { Router, Handler } from './router';
 import { Request } from './request';
 import { Response, enhanceResponse } from './response';
+import { RouteGroup } from './route-group';
+import { enhanceRequest } from './request-enhancer';
 
 export class Routly {
     private router: Router;
@@ -22,10 +24,31 @@ export class Routly {
         this.router.add('POST', path, handler);
     }
 
+    put(path: string, handler: Handler) {
+        this.router.add('PUT', path, handler);
+    }
+
+    delete(path: string, handler: Handler) {
+        this.router.add('DELETE', path, handler);
+    }
+
+    patch(path: string, handler: Handler) {
+        this.router.add('PATCH', path, handler);
+    }
+
+    options(path: string, handler: Handler) {
+        this.router.add('OPTIONS', path, handler);
+    }
+
+    group(prefix: string, callback: (group: RouteGroup) => void) {
+        const group = new RouteGroup(prefix, this.router);
+        callback(group);
+    }
+
     listen(port: number, callback?: () => void) {
         const server = http.createServer((req, res) => {
             // Enhance request and response
-            const enhancedReq = req as Request;
+            const enhancedReq = enhanceRequest(req);
 
             // Parse URL and Query
             const url = new URL(req.url || '/', `http://${req.headers.host}`);

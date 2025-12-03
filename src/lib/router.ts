@@ -3,7 +3,7 @@ import { Request } from './request';
 import { Response } from './response';
 
 export type NextFunction = (err?: any) => void;
-export type Handler = (req: Request, res: Response, next: NextFunction) => void;
+export type Handler = (req: Request, res: Response, next: NextFunction) => void | Promise<void>;
 
 interface Layer {
     method?: string; // If undefined, it matches all methods (middleware)
@@ -80,7 +80,11 @@ export class Router {
             if (match) {
                 req.params = { ...req.params, ...params }; // Merge params
                 try {
-                    layer.handler(req, res, next);
+                    const result = layer.handler(req, res, next);
+                    // Handle async handlers
+                    if (result && typeof result.then === 'function') {
+                        result.catch(next);
+                    }
                 } catch (error) {
                     next(error);
                 }

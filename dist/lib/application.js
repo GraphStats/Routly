@@ -37,6 +37,8 @@ exports.Routly = void 0;
 const http = __importStar(require("http"));
 const router_1 = require("./router");
 const response_1 = require("./response");
+const route_group_1 = require("./route-group");
+const request_enhancer_1 = require("./request-enhancer");
 class Routly {
     constructor() {
         this.router = new router_1.Router();
@@ -50,10 +52,26 @@ class Routly {
     post(path, handler) {
         this.router.add('POST', path, handler);
     }
+    put(path, handler) {
+        this.router.add('PUT', path, handler);
+    }
+    delete(path, handler) {
+        this.router.add('DELETE', path, handler);
+    }
+    patch(path, handler) {
+        this.router.add('PATCH', path, handler);
+    }
+    options(path, handler) {
+        this.router.add('OPTIONS', path, handler);
+    }
+    group(prefix, callback) {
+        const group = new route_group_1.RouteGroup(prefix, this.router);
+        callback(group);
+    }
     listen(port, callback) {
         const server = http.createServer((req, res) => {
             // Enhance request and response
-            const enhancedReq = req;
+            const enhancedReq = (0, request_enhancer_1.enhanceRequest)(req);
             // Parse URL and Query
             const url = new URL(req.url || '/', `http://${req.headers.host}`);
             enhancedReq.query = Object.fromEntries(url.searchParams);

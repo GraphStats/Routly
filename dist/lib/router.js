@@ -61,7 +61,11 @@ class Router {
             if (match) {
                 req.params = { ...req.params, ...params }; // Merge params
                 try {
-                    layer.handler(req, res, next);
+                    const result = layer.handler(req, res, next);
+                    // Handle async handlers
+                    if (result && typeof result.then === 'function') {
+                        result.catch(next);
+                    }
                 }
                 catch (error) {
                     next(error);
