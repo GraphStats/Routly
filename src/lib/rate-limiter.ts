@@ -19,7 +19,7 @@ interface RateLimitStore {
 export function rateLimit(options: RateLimitOptions = {}) {
     const {
         windowMs = 60000, // 1 minute
-        max = 100,
+        max = 500,
         message = 'Too many requests, please try again later.',
         statusCode = 429,
         skipSuccessfulRequests = false,
