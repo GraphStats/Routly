@@ -4,6 +4,7 @@ import { Request } from './request';
 import { Response, enhanceResponse } from './response';
 import { RouteGroup } from './route-group';
 import { enhanceRequest } from './request-enhancer';
+import { RouteBuilder } from './route-builder';
 
 export class Routly {
     private router: Router;
@@ -43,6 +44,39 @@ export class Routly {
     group(prefix: string, callback: (group: RouteGroup) => void) {
         const group = new RouteGroup(prefix, this.router);
         callback(group);
+    }
+
+    /**
+     * Builder-style API: Define routes with method chaining
+     * Example: app.route('/users').get(handler).post(handler)
+     */
+    route(path: string): RouteBuilder {
+        return new RouteBuilder(path, this.router);
+    }
+
+    /**
+     * Modern map-style API: Define multiple routes at once
+     * Example: app.routes({ 'GET /': handler, 'POST /users': handler })
+     */
+    routes(routeMap: Record<string, Handler>): void {
+        for (const [key, handler] of Object.entries(routeMap)) {
+            const [method, ...pathParts] = key.trim().split(/\s+/);
+            const path = pathParts.join(' ') || '/';
+
+            const upperMethod = method.toUpperCase();
+            if (['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'].includes(upperMethod)) {
+                this.router.add(upperMethod, path, handler);
+            } else {
+                throw new Error(`Invalid HTTP method: ${method}. Expected format: 'METHOD /path'`);
+            }
+        }
+    }
+
+    /**
+     * Modern alias for listen() - Start the server
+     */
+    start(port: number, callback?: () => void): void {
+        this.listen(port, callback);
     }
 
     listen(port: number, callback?: () => void) {

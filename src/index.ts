@@ -1,5 +1,6 @@
 export { Routly } from './lib/application';
 export { Router } from './lib/router';
+export { RouteBuilder } from './lib/route-builder';
 export { RouteGroup } from './lib/route-group';
 export { bodyParser } from './lib/body-parser';
 export { Request } from './lib/request';
