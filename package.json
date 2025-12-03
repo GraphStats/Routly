@@ -1,0 +1,29 @@
+{
+  "name": "routly",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "router",
+    "http",
+    "framework",
+    "express",
+    "lightweight"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "A lightweight, optimized, and simple web framework for Node.js",
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
