@@ -2,6 +2,7 @@
 
 A modern, feature-rich web framework for Node.js with TypeScript support. Unlike Express, Routly comes with batteries included - validation, CORS, rate limiting, and more are built right in.
 
+
 ## ✨ Features
 
 - 🚀 **Lightweight**: Built on Node.js native `http` module
