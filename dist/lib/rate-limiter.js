@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.rateLimit = rateLimit;
 function rateLimit(options = {}) {
     const { windowMs = 60000, // 1 minute
-        max = 500, message = 'Too many requests, please try again later.', statusCode = 429, skipSuccessfulRequests = false, skipFailedRequests = false, } = options;
+    max = 500, message = 'Too many requests, please try again later.', statusCode = 429, skipSuccessfulRequests = false, skipFailedRequests = false, } = options;
     const store = {};
     // Cleanup old entries every minute
     setInterval(() => {
