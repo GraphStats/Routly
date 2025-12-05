@@ -1,0 +1,52 @@
+stages:
+  - fetch
+
+variables:
+  BRANCH: main
+
+fetch_mrbeast_subs:
+  stage: fetch
+  image: ubuntu:22.04
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - if: '$CI_COMMIT_BRANCH == "main"'   # déclenche sur push sur main
+      when: always
+
+  script:
+    # Installer les outils nécessaires
+    - apt-get update && apt-get install -y git curl jq
+
+    - echo "Décider si on exécute le job"
+    - |
+      if [ $(( RANDOM % 100 )) -lt 16 ]; then
+        echo "✅ Run"
+        export RUN_JOB=true
+      else
+        echo "❌ Skip"
+        export RUN_JOB=false
+      fi
+
+    - |
+      if [ "$RUN_JOB" = "true" ]; then
+        echo "Checkout de la branche $BRANCH"
+        git config user.name "Drayko"
+        git config user.email "31966435-graphstats.pro@users.noreply.gitlab.com"
+
+        # Utiliser CI_JOB_TOKEN pour push via HTTPS
+        git remote set-url origin https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/graphstats.pro/Routly.git
+
+        git checkout $BRANCH || git checkout -b $BRANCH
+        echo "Récupération du nombre d'abonnés..."
+        curl -s https://ests.sctools.org/api/get/UCX6OQ3DkcsbYNE6H8uQQuVA \
+          | jq '{estCount: .stats.estCount}' > mrbeast.json
+
+        git add mrbeast.json
+        git commit -m "Update estCount [skip ci]" || echo "No changes to commit"
+
+        git push origin $BRANCH
+      else
+        echo "Job ignoré"
+      fi

@@ -1,0 +1,226 @@
+{
+    "numFailedTestSuites": 1,
+    "numFailedTests": 1,
+    "numPassedTestSuites": 2,
+    "numPassedTests": 9,
+    "numPendingTestSuites": 0,
+    "numPendingTests": 0,
+    "numRuntimeErrorTestSuites": 0,
+    "numTodoTests": 0,
+    "numTotalTestSuites": 3,
+    "numTotalTests": 10,
+    "openHandles": [],
+    "snapshot": {
+        "added": 0,
+        "didUpdate": false,
+        "failure": false,
+        "filesAdded": 0,
+        "filesRemoved": 0,
+        "filesRemovedList": [],
+        "filesUnmatched": 0,
+        "filesUpdated": 0,
+        "matched": 0,
+        "total": 0,
+        "unchecked": 0,
+        "uncheckedKeysByFile": [],
+        "unmatched": 0,
+        "updated": 0
+    },
+    "startTime": 1764866072338,
+    "success": false,
+    "testResults": [
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Routly Middleware"
+                    ],
+                    "duration": 83,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly Middleware should execute middleware in order",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 1,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should execute middleware in order"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly Middleware"
+                    ],
+                    "duration": 10,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly Middleware should parse JSON body using bodyParser",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 1,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should parse JSON body using bodyParser"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly Middleware"
+                    ],
+                    "duration": 8,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly Middleware should handle CORS",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 1,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should handle CORS"
+                }
+            ],
+            "endTime": 1764866075371,
+            "message": "",
+            "name": "C:\\Users\\GraphStats\\Desktop\\Code\\Projet en cours\\NPM\\Routly\\Routly-beta-gitlab\\tests\\middleware.test.ts",
+            "startTime": 1764866073081,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Routly App"
+                    ],
+                    "duration": 76,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly App should handle a basic GET request",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 2,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should handle a basic GET request"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly App"
+                    ],
+                    "duration": 13,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly App should handle a basic POST request with JSON body",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 2,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should handle a basic POST request with JSON body"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly App"
+                    ],
+                    "duration": 6,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly App should return 404 for unknown routes",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 1,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should return 404 for unknown routes"
+                }
+            ],
+            "endTime": 1764866075381,
+            "message": "",
+            "name": "C:\\Users\\GraphStats\\Desktop\\Code\\Projet en cours\\NPM\\Routly\\Routly-beta-gitlab\\tests\\app.test.ts",
+            "startTime": 1764866073078,
+            "status": "passed",
+            "summary": ""
+        },
+        {
+            "assertionResults": [
+                {
+                    "ancestorTitles": [
+                        "Routly Router"
+                    ],
+                    "duration": 80,
+                    "failureDetails": [
+                        {
+                            "matcherResult": {
+                                "actual": 404,
+                                "expected": 200,
+                                "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                                "name": "toBe",
+                                "pass": false
+                            }
+                        }
+                    ],
+                    "failureMessages": [
+                        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at Object.<anonymous> (C:\\Users\\GraphStats\\Desktop\\Code\\Projet en cours\\NPM\\Routly\\Routly-beta-gitlab\\tests\\router.test.ts:28:33)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)"
+                    ],
+                    "fullName": "Routly Router should handle route parameters",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 0,
+                    "retryReasons": [],
+                    "status": "failed",
+                    "title": "should handle route parameters"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly Router"
+                    ],
+                    "duration": 8,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly Router should handle query parameters",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 2,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should handle query parameters"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly Router"
+                    ],
+                    "duration": 5,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly Router should handle route groups",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 2,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should handle route groups"
+                },
+                {
+                    "ancestorTitles": [
+                        "Routly Router"
+                    ],
+                    "duration": 16,
+                    "failureDetails": [],
+                    "failureMessages": [],
+                    "fullName": "Routly Router should handle async handlers",
+                    "invocations": 1,
+                    "location": null,
+                    "numPassingAsserts": 2,
+                    "retryReasons": [],
+                    "status": "passed",
+                    "title": "should handle async handlers"
+                }
+            ],
+            "endTime": 1764866075413,
+            "message": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mRoutly Router › should handle route parameters\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\n    Expected: \u001b[32m200\u001b[39m\n    Received: \u001b[31m404\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 26 |\u001b[39m         server \u001b[33m=\u001b[39m app\u001b[33m.\u001b[39mlisten(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 27 |\u001b[39m         \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request(server)\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'/users/123'\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 28 |\u001b[39m         expect(response\u001b[33m.\u001b[39mstatus)\u001b[33m.\u001b[39mtoBe(\u001b[35m200\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 29 |\u001b[39m         expect(response\u001b[33m.\u001b[39mbody)\u001b[33m.\u001b[39mtoEqual({ id\u001b[33m:\u001b[39m \u001b[32m'123'\u001b[39m })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 30 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 31 |\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36mtests/router.test.ts\u001b[39m\u001b[0m\u001b[2m:28:33)\u001b[22m\u001b[2m\u001b[22m\n",
+            "name": "C:\\Users\\GraphStats\\Desktop\\Code\\Projet en cours\\NPM\\Routly\\Routly-beta-gitlab\\tests\\router.test.ts",
+            "startTime": 1764866073081,
+            "status": "failed",
+            "summary": ""
+        }
+    ],
+    "wasInterrupted": false
+}
