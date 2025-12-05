@@ -7,7 +7,7 @@
         "dist"
     ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "build": "tsc",
         "prepublishOnly": "npm run build"
     },
@@ -32,8 +32,8 @@
         "@types/supertest": "^6.0.3",
         "jest": "^30.2.0",
         "supertest": "^7.1.4",
+        "ts-jest": "^29.4.6",
         "ts-node": "^10.9.2",
         "typescript": "^5.9.3"
-    },
-    "dependencies": {}
+    }
 }
